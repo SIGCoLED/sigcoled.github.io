@@ -162,6 +162,7 @@ p {
 .research-img {
   height: 200px;
   background-color: #e2e8f0;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
