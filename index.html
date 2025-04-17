@@ -173,16 +173,41 @@
   </footer>
 
   <script>
+    // Toggle mobile menu
     document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
       document.querySelector('.nav-menu').classList.toggle('active');
       this.classList.toggle('active');
     });
 
-    // Close menu when clicking on a link
+    // Handle smooth scrolling to section headings
     document.querySelectorAll('.nav-menu a').forEach(link => {
-      link.addEventListener('click', function() {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        // Close mobile menu if open
         document.querySelector('.nav-menu').classList.remove('active');
         document.querySelector('.mobile-menu-toggle').classList.remove('active');
+
+        // Get the target section id from href
+        const targetId = this.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+
+        if (targetSection) {
+          // Find the h2 element within the target section
+          const targetHeading = targetSection.querySelector('h2');
+
+          if (targetHeading) {
+            // Calculate position accounting for the fixed navbar
+            const navHeight = document.querySelector('nav').offsetHeight;
+            const headingPosition = targetHeading.getBoundingClientRect().top + window.pageYOffset - navHeight - 20;
+
+            // Scroll to the heading
+            window.scrollTo({
+              top: headingPosition,
+              behavior: 'smooth'
+            });
+          }
+        }
       });
     });
   </script>

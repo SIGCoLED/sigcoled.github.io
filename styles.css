@@ -9,6 +9,10 @@
   --accent-color: #7c3aed;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -102,6 +106,7 @@ nav a:hover {
 
 section {
   margin: 3rem 0;
+  scroll-margin-top: 70px; /* Adds space for fixed navbar */
 }
 
 section:first-of-type {
