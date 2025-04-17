@@ -65,6 +65,7 @@ nav {
   top: 0;
   z-index: 100;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 0;
 }
 
 .nav-container {
@@ -74,6 +75,7 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 55px;
 }
 
 .nav-menu {
@@ -81,10 +83,14 @@ nav {
   justify-content: center;
   list-style: none;
   transition: transform 0.3s ease-in-out;
+  height: 100%;
 }
 
 nav li {
-  padding: 1.2rem;
+  padding: 0 1.2rem;
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 nav a {
@@ -356,7 +362,7 @@ footer {
   }
 
   nav {
-    padding: 15px 0;
+    padding: 10px 0;
     height: 50px;
   }
 
