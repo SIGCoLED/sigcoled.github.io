@@ -60,19 +60,27 @@ nav {
   position: sticky;
   top: 0;
   z-index: 100;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-nav ul {
-  display: flex;
-  justify-content: center;
-  list-style: none;
+.nav-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-menu {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  transition: transform 0.3s ease-in-out;
 }
 
 nav li {
-  padding: 1rem;
+  padding: 1.2rem;
 }
 
 nav a {
@@ -298,15 +306,88 @@ footer {
   grid-column: 1 / -1;
 }
 
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 32px;
+  height: 24px;
+  cursor: pointer;
+  z-index: 200;
+  padding: 2px;
+}
+
+.mobile-menu-toggle span {
+  display: block;
+  height: 4px;
+  width: 100%;
+  background-color: white;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+/* Hamburger menu animation */
+.mobile-menu-toggle.active span:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
-  nav ul {
+  .mobile-menu-toggle {
+    display: flex;
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    z-index: 300;
+  }
+
+  nav {
+    padding: 15px 0;
+    height: 50px;
+  }
+
+  .nav-container {
+    padding: 5px 2rem;
+    justify-content: center;
+    height: 100%;
+  }
+
+  .nav-menu {
+    position: fixed;
     flex-direction: column;
+    background-color: var(--dark-color);
+    width: 100%;
+    left: 0;
+    top: 0;
+    padding: 70px 0 30px;
+    transform: translateY(-100%);
     align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-menu.active {
+    transform: translateY(0);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
   }
 
   nav li {
-    padding: 0.5rem;
+    width: 100%;
+    text-align: center;
+    padding: 1.2rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  nav li:last-child {
+    border-bottom: none;
   }
 
   h1 {
