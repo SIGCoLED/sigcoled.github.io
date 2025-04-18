@@ -178,13 +178,24 @@ p {
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
 }
 
+/* Make research-img a fixed aspect ratio container */
 .research-img {
-  height: 200px;
-  background-color: #e2e8f0;
+  width: 100%;
+  height: 0;
+  padding-bottom: 60%; /* 16:9 aspect ratio (9/16 = 0.5625) */
+  position: relative;
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background-color: #e2e8f0;
+}
+
+/* Position images absolutely within the container */
+.research-img img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* This crops the image to fill the container */
 }
 
 .research-content {
